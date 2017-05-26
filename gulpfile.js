@@ -3,6 +3,7 @@ var gulp      = require('gulp'),
   sourcemaps  = require('gulp-sourcemaps'),
   prefix      = require('gulp-autoprefixer'),
   sassLint    = require('gulp-sass-lint'),
+  browserSync = require('browser-sync').create(),
   jsLint      = require('gulp-eslint');
 
 // Directories for storing sass and css files
@@ -88,7 +89,9 @@ function lintFile(file) {
     .pipe(sassLint.format());
 }
 
-gulp.task('default', ['lint-js', 'sass', 'watch']);
+gulp.task('default', ['lint-js', 'sass', 'watch'], function () {
+  gulp.watch('sass/**/*.scss', ['sass']);
+});
 
 
 
