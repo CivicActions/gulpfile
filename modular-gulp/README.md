@@ -14,5 +14,5 @@ This includes a sample package.json, yarn.lock file, gulp tasks in different fol
 3. Install gulp from the top level directory for the theme `npm install gulp`
 4. Install other project plugins `yarn install`.
 5. To use this in a new drupal theme, you'll need to edit the gulpfile.js and setup paths to your SASS, PatternLab and CSS directories.
-
-5. Run `gulp` to compile your CSS and start watching for changes.
+6. Also edit the default.js & build.js files if you are not using PatternLab in your project.
+7. Run `gulp` to compile your CSS and start watching for changes.
