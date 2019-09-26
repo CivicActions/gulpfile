@@ -48,8 +48,7 @@ var options = {
 };
 // Tasks
 require('./gulp-tasks/sass')(gulp, options, plugins);
-// Commented these out until their task JS files have been updated.
-// require('./gulp-tasks/sass-lint')(gulp, options, plugins);
+require('./gulp-tasks/sass-lint')(gulp, options, plugins);
 // require('./gulp-tasks/js-lint')(gulp, options, plugins);
 // require('./gulp-tasks/js-optimize')(gulp, options, plugins);
 // require('./gulp-tasks/watch')(gulp, options, plugins);

@@ -23,5 +23,4 @@ module.exports = function(gulp, options, plugins) {
       .pipe(plugins.sassLint.format())
       .pipe(plugins.sassLint.failOnError())
   });
-
 };
