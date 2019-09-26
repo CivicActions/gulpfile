@@ -1,3 +1,4 @@
+
 /**
  * @file
  * Task: Compile: Sass.
@@ -16,21 +17,15 @@ module.exports = function(gulp, options, plugins) {
       .pipe(plugins.sassglob())
       .pipe(plugins.sass({
         outputStyle: 'compact', // compressed is the best option here but needs sourcemaps turned off for it to work.
-        includePaths: [
-          'node_modules/breakpoint-sass/stylesheets',
-          'node_modules/bourbon-neat/app/assets/stylesheets'
-        ]
+      
       }).on('error', plugins.sass.logError))
       .pipe(plugins.prefix({
-        browsers: ['last 2 versions'],
         cascade: false
       }))
-      .pipe(plugins.postcss([
-        plugins.mqpacker({ sort: true})
-      ]))
+
+      //.pipe(plugins.gcmq())
       .pipe(plugins.concat('styles.css'))
-      .pipe(plugins.sourcemaps.write()) //Comment this too to remove sourcemaps
+      .pipe(plugins.sourcemaps.write())
       .pipe(gulp.dest(options.css.cssFiles));
   });
-
 };
