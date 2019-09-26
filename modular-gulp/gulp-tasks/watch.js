@@ -14,6 +14,7 @@ module.exports = function(gulp, options, plugins) {
   }
 
   // Keep an eye on Sass files for changes and only lint changed files
+  // @todo this is not linting only changed files. Refactor.
   gulp.task('watch', function() {
     gulp.watch([
       options.sass.sassFiles,
@@ -27,6 +28,6 @@ module.exports = function(gulp, options, plugins) {
     gulp.watch([
         options.sass.sassFiles,
         options.sass.plFiles],
-      ['sass']);
+      gulp.series('sass', 'sass-lint'));
   });
 };
