@@ -24,8 +24,8 @@ var plugins = require('gulp-load-plugins')({
 var sassFiles       = 'source/sass/**/*.scss'; // replace this with the path to your sass directory.
 var patternLabFiles = 'source/_patterns/**/*.scss'; // Replace with top level PL directory if any
 var cssDir          = 'source/css'; // Replace with path to CSS dir
-var optimizedJSDir  = 'components/js'; // Directory for minified JS files
-var jsDir           = 'components/js/src/*.js'; // Source directory for JS
+var optimizedJSDir  = 'source/js'; // Directory for minified JS files
+var jsDir           = 'source/js/src/*.js'; // Source directory for JS
 
 'use strict';
 var options = {
@@ -49,6 +49,6 @@ var options = {
 // Tasks
 require('./gulp-tasks/sass')(gulp, options, plugins);
 require('./gulp-tasks/sass-lint')(gulp, options, plugins);
-// require('./gulp-tasks/js-lint')(gulp, options, plugins);
+require('./gulp-tasks/js-lint')(gulp, options, plugins);
 // require('./gulp-tasks/js-optimize')(gulp, options, plugins);
-// require('./gulp-tasks/watch')(gulp, options, plugins);
+require('./gulp-tasks/watch')(gulp, options, plugins);
