@@ -1,18 +1,18 @@
 /**
  * @file
- * Task: Gulp.
- * Default gulp task
+ * Task: Used for running all tasks.
+ * Usage: gulp
+ * @param gulp
  */
 
-module.exports = function (gulp, plugins, options) {
+module.exports = function (gulp) {
   'use strict';
 
-  // Watch
-  gulp.task('default', [
+  // Default tasks
+  gulp.task('default', gulp.series(
     'sass-lint',
     'sass',
-    'patternlab:watch', // Remove this line if your project does not include patternlab
-    'watch'
-  ]);
-
+    'js-lint',
+    'js-optimize'
+  ));
 };

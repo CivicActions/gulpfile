@@ -1,3 +1,16 @@
+/* -------------------------------
+ Available Tasks
+ ------------------------------- */
+// gulp                     -- Lints js & sass. Compiles sass. Minifies and cleans up JS files.
+// gulp build               -- Task for frontend:build. Lints JS & Sass, compiles sass & generates patternlab.
+// gulp sass                -- Compiles Sass Files.
+// gulp sass-for-build      -- Compiles sass files & minifies the resulting CSS
+// gulp sass-lint           -- Lints Sass Files.
+// gulp js-lint             -- Lints JS files.
+// gulp js-optimize         -- Minifies JS files
+// gulp watch               -- Lints & Watches sass changes .
+//
+
 var gulp = require('gulp');
 
 // == PLUGINS ====
@@ -43,12 +56,14 @@ var options = {
 
   //--------- JS ---------------
   js: {
-    jsFiles: jsDir
+    jsFiles: jsDir,
+    optimizedDir: optimizedJSDir
   }
 };
 // Tasks
 require('./gulp-tasks/sass')(gulp, options, plugins);
 require('./gulp-tasks/sass-lint')(gulp, options, plugins);
 require('./gulp-tasks/js-lint')(gulp, options, plugins);
-// require('./gulp-tasks/js-optimize')(gulp, options, plugins);
+require('./gulp-tasks/js-optimize')(gulp, options, plugins);
 require('./gulp-tasks/watch')(gulp, options, plugins);
+require('./gulp-tasks/default')(gulp, options, plugins);
